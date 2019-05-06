@@ -16,6 +16,7 @@ public class GeneratorSqlMap {
         boolean overWrite = true;
         InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("mybatis/generatorConfig.xml");
         ConfigurationParser configurationParser = new ConfigurationParser(warnings);
+        //根据加载的配置文件来解析
         Configuration configuration = configurationParser.parseConfiguration(inputStream);
         DefaultShellCallback defaultShellCallback=new DefaultShellCallback(overWrite);
         MyBatisGenerator generator = new MyBatisGenerator(configuration,defaultShellCallback,warnings);
