@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--Mysql连接-->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql:///spring5"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+        <!--不进行类型解析-->
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+    <!--pojo类的设置-->
+        <javaModelGenerator targetPackage="cn.my.pojo" targetProject=".\src">
+            <property name="enableSubPackages" value="false" /><!--不需要后缀-->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+    <!--映射文件mapper.xml-->
+        <sqlMapGenerator targetPackage="cn.my.mapper"  targetProject=".\src">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+        <!--mapper接口,代理类-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.my.mapper"  targetProject=".\src">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+        <!--设置数据表-->
+        <table schema="" tableName="items" ></table>
+        <table schema="" tableName="orders" ></table>
+        <table schema="" tableName="orderdetail" ></table>
+        <table schema="" tableName="users" ></table>
+    </context>
+</generatorConfiguration>
